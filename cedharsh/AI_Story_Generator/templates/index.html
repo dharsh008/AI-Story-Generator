@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Generator</title>
+    <!-- Link to our Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Load modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>✨ AI Story Generator</h1>
+            <p>Bring your imagination to life using the power of AI</p>
+        </header>
+
+        <!-- Main Form Panel -->
+        <main class="glass-panel">
+            <div class="input-group">
+                <label for="prompt">Story Prompt</label>
+                <textarea id="prompt" placeholder="e.g., A boy finds a secret door..." rows="3"></textarea>
+                <div id="error-message" class="error-hidden">Prompt cannot be empty!</div>
+            </div>
+
+            <div class="controls-row">
+                <div class="input-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre">
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Fantasy">Fantasy</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="length">Length</label>
+                    <select id="length">
+                        <option value="Short">Short</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Long">Long</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <button id="generate-btn" class="primary-btn">
+                <span class="btn-text">Generate Story</span>
+                <span class="loader hidden"></span>
+            </button>
+        </main>
+
+        <!-- Result Section -->
+        <section id="result-section" class="hidden glass-panel mt-4">
+            <h2>Generated Story</h2>
+            <div id="story-content"></div>
+            
+            <div class="action-buttons">
+                <button id="copy-btn" class="secondary-btn">📋 Copy to Clipboard</button>
+                <button id="download-btn" class="secondary-btn">💾 Download .txt</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Link to our Custom JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
